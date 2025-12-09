@@ -1,0 +1,34 @@
+{
+  "code": "202",
+  "descripton": "",
+  "cdmList": [
+    {
+      "productCode": "123",
+      "branch": null,
+	  "billIndicator": "Y",
+      "startDateTime": "2025-05-26 15:51:53",
+      "endDateTime": "2025-05-26 15:51:53"
+    },
+    {
+      "productCode": "124",
+      "branch": null,
+	  "billIndicator": "Y",
+      "startDateTime": "2025-05-26 15:52:53",
+      "endDateTime": "2025-05-26 15:52:53"
+    },
+    {
+      "productCode": "125",
+      "branch": null,
+      "billIndicator": "Y",
+      "startDateTime": "2025-05-26 15:52:53",
+      "endDateTime": "2025-05-26 15:52:53"
+    },
+    {
+      "productCode": "126",
+      "branch": null,
+	  "billIndicator": "123",
+      "startDateTime": "2025-05-26 15:53:53",
+      "endDateTime": "2025-05-26 15:53:53"
+    }
+  ]
+}
