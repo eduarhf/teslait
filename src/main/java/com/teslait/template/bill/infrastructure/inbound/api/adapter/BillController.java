@@ -1,5 +1,8 @@
-package com.teslait.template.bill.infrastructure.inbound.api.adapter.adapter;
+package com.teslait.template.bill.infrastructure.inbound.api.adapter;
 
+import com.teslait.template.bill.application.BillFactoryService;
+import com.teslait.template.bill.domain.model.Bill;
+import com.teslait.template.bill.domain.port.in.BillPort;
 import com.teslait.template.framework.ChannelEnum;
 import com.teslait.template.framework.CountryEnum;
 import com.teslait.template.framework.MainController;
@@ -21,17 +24,17 @@ import java.util.UUID;
 @RequestMapping("/bills")
 public class BillController extends MainController {
 
-    //@Autowired
-    private StadisticPort stadisticPort;
-    //@Autowired
+    @Autowired
+    private BillFactoryService billFactoryService;
+    @Autowired
     private HttpServletRequest request;
     @GetMapping
-    public ResponseEntity<List<StadisticAll>> statistics(){
+    public ResponseEntity<List<Bill>> statistics(){
 
         CountryEnum countryEnum = CountryEnum.valueOf(request.getHeader("country"));
-
         logEntry(UUID.randomUUID(), ChannelEnum.WEB, countryEnum);
-        
-        return ResponseEntity.ok().headers(new HttpHeaders(create())).body(stadisticPort.stadistics());
+        final BillPort service = billFactoryService.findStrategy(countryEnum);
+
+        return ResponseEntity.ok().headers(new HttpHeaders(create())).body(service.bills());
     }
 }

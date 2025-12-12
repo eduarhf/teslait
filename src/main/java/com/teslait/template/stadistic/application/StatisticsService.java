@@ -21,22 +21,18 @@ public class StatisticsService implements StadisticPort {
     public List<StadisticAll> stadistics() {
         log.info("StatisticsService : stadistics");
         List<StadisticAll> stadistics = getStadisticPort.getStadistics();
-        log.info("stadistics.size(): "+stadistics.size());
-        for (StadisticAll stadisticAll : stadistics) {
-            log.info("Agency: "+stadisticAll.getAgency());
-        }
-        List<Agency> agencies = StatisticsGrouper.groupByAgency(stadistics);
-        log.info("agencies.size(): "+agencies.size());
-        for (Agency agency : agencies) {
-            log.info("agency: "+agency.getAgency()+" product: "+agency.getProduct());
-        }
-        List<Product> products = StatisticsGrouper.groupByProduct(stadistics);
-        for (Product product : products) {
-            log.info("product: "+product.getProduct());
-            log.info("date: "+product.getDate());
 
-        }
-        log.info("products.size(): "+products.size());
+        List<Agency> agencies = StatisticsGrouper.groupByAgency(stadistics);
+        //log.info("agencies.size(): "+agencies.size());
+        //for (Agency agency : agencies) {
+        //    log.info("agency: "+agency.getAgency()+" product: "+agency.getProduct());
+        //}
+        List<Product> products = StatisticsGrouper.groupByProduct(stadistics);
+        //for (Product product : products) {
+        //    log.info("product: "+product.getProduct());
+        //    log.info("date: "+product.getDate());
+        //}
+        //log.info("products.size(): "+products.size());
         return stadistics;
     }
 }

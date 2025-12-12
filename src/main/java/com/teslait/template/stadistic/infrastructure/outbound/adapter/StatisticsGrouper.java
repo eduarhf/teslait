@@ -24,6 +24,7 @@ public class StatisticsGrouper {
       final List<Product> paraSucursal = new ArrayList<>();
       for(final Map.Entry<String, List<StadisticAll>> entryAR
               : groupProductListStatistics.entrySet()) {
+          log.info("productName: " + entryAR.getKey());
           final Map<LocalDate, List<StadisticAll>> groupSubDateListStatistics =
                   converterTreeMap(
                         entryAR.getValue().stream()
@@ -35,6 +36,7 @@ public class StatisticsGrouper {
                                 Collectors.toList())));
           for(final Map.Entry<LocalDate, List<StadisticAll>> entrySub
                   : groupSubDateListStatistics.entrySet()) {
+              log.info("Date: " + entrySub.getValue().get(0).getDate());
               Product product = new Product();
               product.setProduct(entryAR.getKey());
               product.setDate(entrySub.getValue().get(0).getDate());
