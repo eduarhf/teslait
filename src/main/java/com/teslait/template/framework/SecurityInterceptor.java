@@ -34,7 +34,6 @@ public class SecurityInterceptor implements WebRequestInterceptor {
     public void postHandle(WebRequest request, ModelMap model) throws Exception {
         log.info("SecurityInterceptor: postHandle");
 
-        model.addAllAttributes(model);
     }
 
     @Override

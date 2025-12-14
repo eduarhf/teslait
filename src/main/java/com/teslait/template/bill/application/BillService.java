@@ -13,13 +13,13 @@ import java.util.List;
 @Slf4j
 @Service
 public class BillService implements BillPort {
-    //@Autowired
-    //GetBillPort getStadisticPort;
+    @Autowired
+    GetBillPort getStadisticPort;
 
     @Override
     public List<Bill> bills() {
         log.info("BillServiceCL : bills");
-        return List.of();
+        return getStadisticPort.getBills();
     }
 
     @Override

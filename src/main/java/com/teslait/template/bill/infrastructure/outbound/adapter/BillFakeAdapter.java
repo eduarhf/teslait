@@ -1,46 +1,21 @@
 package com.teslait.template.bill.infrastructure.outbound.adapter;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.teslait.template.stadistic.domain.model.StadisticAll;
-import com.teslait.template.stadistic.domain.model.StadisticResponse;
-import com.teslait.template.stadistic.domain.port.out.GetStadisticPort;
-import com.teslait.template.stadistic.infrastructure.outbound.model.StatisticsEntity;
+import com.teslait.template.bill.domain.model.Bill;
+import com.teslait.template.bill.domain.port.out.GetBillPort;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
-//@Component
-public class BillFakeAdapter implements GetStadisticPort {
+@Component
+public class BillFakeAdapter implements GetBillPort {
 
     @Override
-    public List<StadisticAll> getStadistics() {
-        List<StadisticAll> stadistics = new ArrayList<>();
-        StadisticAll stadisticAll = new StadisticAll();
-        stadisticAll.setProduct("INFORME");
-        stadisticAll.setAgency("quilicura");
-        stadisticAll.setUser("test");
-        stadisticAll.setDate("2025-05-26");
-        stadisticAll.setBillIndicator("Y");
-        stadisticAll.setLineOfService("Internet");
-        stadistics.add(stadisticAll);
+    public List<Bill> getBills() {
 
-        stadisticAll = new StadisticAll();
-        stadisticAll.setProduct("INFORME");
-        stadisticAll.setAgency("quilicura");
-        stadisticAll.setUser("test");
-        stadisticAll.setDate("2025-05-27");
-        stadisticAll.setBillIndicator("N");
-        stadisticAll.setLineOfService("Mobile");
-        stadistics.add(stadisticAll);
-
-        stadisticAll = new StadisticAll();
-        stadisticAll.setProduct("INFORME");
-        stadisticAll.setAgency("Conchali");
-        stadisticAll.setUser("prod");
-        stadisticAll.setDate("2025-05-26");
-        stadisticAll.setBillIndicator("Y");
-        stadisticAll.setLineOfService("Mobile");
-        stadistics.add(stadisticAll);
-
-        return stadistics;
+        List<Bill> bills = new ArrayList<>();
+        Bill bill = new Bill();
+        bill.setProduct("INFORME");
+        bill.setAgency("quilicura");
+        bill.setBatchResponse("2025-05-26");
+        bills.add(bill);
+        return bills;
     }
 }

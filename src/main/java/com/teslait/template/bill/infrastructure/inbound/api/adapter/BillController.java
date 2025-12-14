@@ -29,7 +29,7 @@ public class BillController extends MainController {
     @Autowired
     private HttpServletRequest request;
     @GetMapping
-    public ResponseEntity<List<Bill>> statistics(){
+    public ResponseEntity<List<Bill>> bills(){
 
         CountryEnum countryEnum = CountryEnum.valueOf(request.getHeader("country"));
         logEntry(UUID.randomUUID(), ChannelEnum.WEB, countryEnum);
