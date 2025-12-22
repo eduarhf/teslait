@@ -17,27 +17,26 @@ public class BillService implements BillPort {
     private static final String STATUS_APPROVED = "approved";
     private static final String STATUS_WAITING = "waiting";
     @Autowired
-    GetBillPort getStadisticPort;
+    GetBillPort getBillPort;
 
     @Override
     public List<Bill> bills() {
         log.info("BillServiceCL : bills");
-        List<Bill> billsRepository = getStadisticPort.getBills();
+        List<Bill> billsRepository = getBillPort.getBills();
         log.info("billsRepository size {}", billsRepository.size());
         List<Bill> billsFilter = billsRepository.stream()
-                .filter(bill -> bill.getInvoiceNumber()!=null && !bill.getInvoiceNumber().isEmpty())
+                .filter(bill -> bill!=null && !bill.getInvoiceNumber().isEmpty())
                 .collect(Collectors.toList());
-        log.info("billsFilter size {}", billsFilter.size());
+        log.info("billsFilter size "+ billsFilter.size());
         //billsFilter.forEach(bill -> bill.setCountry(CountryEnum.CL.code()));
-        for(Bill bill : billsFilter){
+        /*for(Bill bill : billsFilter){
             log.info("Bill filtered InvoiceNumber {}", bill.getInvoiceNumber());
             if(STATUS_APPROVED.equalsIgnoreCase(getExternalData(bill.getStatus()))){
 
+                //new Bill(STATUS_WAITING);
                 bill.setStatus(STATUS_WAITING);
             }
-        }
-
-        log.info("billsFilter size {}", billsFilter.size());
+        }*/
         return billsFilter;
     }
     private String getExternalData(String status){

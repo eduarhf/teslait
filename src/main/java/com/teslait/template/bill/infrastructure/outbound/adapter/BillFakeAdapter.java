@@ -23,8 +23,8 @@ public class BillFakeAdapter implements GetBillPort {
         bill.setNumeroFactura("123384848");
         bill.setMontoFactura("1000");
         bill.setPais("AR");
-        bill.setFechaFactura("2025-05-25T10:15:30.010-00:00");
-        bill.setFechaVencimiento("2025-12-18T10:15:30.010-00:00");
+        bill.setFechaFactura("2025-12-20T13:15:30.010-00:00");
+        bill.setFechaVencimiento("2025-12-20T13:15:30.010-00:00");
         bills.add(bill);
 
         bill = new Factura();
@@ -32,18 +32,37 @@ public class BillFakeAdapter implements GetBillPort {
         bill.setNumeroFactura("3333554");
         bill.setMontoFactura("1078800");
         bill.setPais("CL");
-        bill.setFechaFactura("2025-05-26T10:15:30.010-00:00");
-        bill.setFechaVencimiento("2025-12-16T15:15:30.010-00:00");
+        bill.setFechaFactura("2025-12-21T10:15:30.010-00:00");
+        bill.setFechaVencimiento("2025-12-21T15:15:30.010-00:00");
+        bills.add(bill);
+
+        bill = new Factura();
+        bill.setNombreCliente("Pablo Ultimate");
+        bill.setNumeroFactura("56677");
+        bill.setMontoFactura("1000");
+        bill.setPais("PY");
+        bill.setFechaFactura("2025-12-22T10:15:30.010-00:00");
+        bill.setFechaVencimiento("2025-12-22T10:15:30.010-00:00");
+        bills.add(bill);
+
+        bill = new Factura();
+        bill.setNombreCliente("Che Pablo");
+        bill.setNumeroFactura("56677");
+        bill.setMontoFactura("1000");
+        bill.setPais("AR");
+        bill.setFechaFactura("2025-11-25T10:15:30.010-00:00");
+        bill.setFechaVencimiento("2025-11-26T10:15:30.010-00:00");
         bills.add(bill);
 
         bill = new Factura();
         bill.setNombreCliente("Pablo");
         bill.setNumeroFactura("56677");
         bill.setMontoFactura("1000");
-        bill.setPais("PY");
-        bill.setFechaFactura("2025-05-25T10:15:30.010-00:00");
-        bill.setFechaVencimiento("2025-05-26T10:15:30.010-00:00");
+        bill.setPais("PE");
+        bill.setFechaFactura("2025-11-25T10:15:30.010-00:00");
+        bill.setFechaVencimiento("2025-11-26T10:20:30.010-00:00");
         bills.add(bill);
+
         List<Bill> billsResult = bills.stream().map(billConverter::convert).collect(Collectors.toList());
         return billsResult;
     }

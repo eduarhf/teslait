@@ -12,12 +12,12 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 @Slf4j
-public class StatisticsGrouper {
+public class UtilGrouper {
 
     private static final String Y_CHARACTER = "Y";
 
-    public static List<Product> groupByProduct
-            (List<StadisticAll> lista) {
+    public static List<Product> groupByProduct(List<StadisticAll> lista) {
+
         final Map<String, List<StadisticAll>> groupProductListStatistics =
                 lista.stream().collect(
                         Collectors.groupingBy(groupA -> groupA.getProduct()));
@@ -58,7 +58,6 @@ public class StatisticsGrouper {
         return new TreeMap<>(map);
     }
     public static List<Agency> groupByAgency(List<StadisticAll> lista) {
-
         final Map<String, List<StadisticAll>> groupSucursalListStatistics =
                 lista.stream().collect(Collectors.groupingBy(groupA -> groupA.getAgency()));
         final List<Agency> agencys = new ArrayList<>();
