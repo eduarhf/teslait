@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Slf4j
 @Data
@@ -38,6 +40,9 @@ public class Bill {
         this.invoiceDate = invoiceDate;
         this.dueDate = dueDate;
         final Instant invoiceDateDate = OffsetDateTime.parse(invoiceDate).toInstant();
+        //pe
+        final Instant invoiceDateDate2 = LocalDate.parse(invoiceDate).atStartOfDay().toInstant(ZoneOffset.UTC);
+
         final Instant dueDateDate = OffsetDateTime.parse(dueDate).toInstant();
         final boolean dataDiff = OffsetDateTime
                 .parse(dueDate)
