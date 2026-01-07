@@ -15,10 +15,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Generated
 
 public class SecurityInterceptorConfig extends WebMvcConfigurationSupport {
+
     @Bean
     SecurityInterceptor securityInterceptor() {
         return new SecurityInterceptor();
     }
+
     @Override
     protected void addInterceptors(org.springframework.web.servlet.config.annotation.InterceptorRegistry registry) {
         registry.addWebRequestInterceptor(securityInterceptor());

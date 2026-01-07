@@ -28,7 +28,10 @@ public class Bill {
     public Bill(
             String customerName,
             String invoiceNumber,
-            String country, String invoiceAmount, String invoiceDate, String dueDate) {
+            String country,
+            String invoiceAmount,
+            String invoiceDate,
+            String dueDate) {
 
         Assert.notNull(customerName, "customerName must not be null");
         Assert.notNull(invoiceNumber, "invoiceNumber must not be null");
@@ -41,7 +44,7 @@ public class Bill {
         this.dueDate = dueDate;
         final Instant invoiceDateDate = OffsetDateTime.parse(invoiceDate).toInstant();
         //pe
-        final Instant invoiceDateDate2 = LocalDate.parse(invoiceDate).atStartOfDay().toInstant(ZoneOffset.UTC);
+        //final Instant invoiceDateDate2 = LocalDate.parse(invoiceDate).atStartOfDay().toInstant(ZoneOffset.UTC);
 
         final Instant dueDateDate = OffsetDateTime.parse(dueDate).toInstant();
         final boolean dataDiff = OffsetDateTime
