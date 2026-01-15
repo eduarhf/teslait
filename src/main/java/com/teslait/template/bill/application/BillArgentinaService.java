@@ -18,10 +18,13 @@ import java.util.stream.Collectors;
 public class BillArgentinaService implements BillPort {
     @Autowired
     GetBillPort getBillPort;
-
+    @Autowired
+    CustomMetricService customMetricService;
     @Override
     public List<Bill> bills() {
+
         log.info("BillArgentinaService : country: "+CountryEnum.AR.code());
+        customMetricService.executeBusinessLogic();
         List<Bill> billsRepository = getBillPort.getBills();
         getMaxByDate(billsRepository);
         log.info("billsRepository size: "+ billsRepository.size());
